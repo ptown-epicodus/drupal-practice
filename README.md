@@ -45,16 +45,51 @@ This website was generated with [Drupal 7.54](https://www.drupal.org/project/dru
 * Rename to desired **`<repo_pathname>`** and set as working directory in CLI.
 * Run `$ cp sites/default/default.settings.php sites/default/settings.php`.
 * Run `$ chmod -R a+w sites/default`.
+* Create database (see bellow)
+* Install Drupal core
+ - Visit **`localhost:8888`** in browser
+ - Settings:
+   - Standard
+   - English
+   - Database:
+     - Type: MySQL
+     - Name: `<database_name>`
+     - Database admin: `<database_admin>`
+     - Password: `<database_admin_password>`
+     - Host: `127.0.0.1`
+     - Database port: `8889`
+   - Site:
+     - Name: 'Drupal Practice'
+     - Admin: `site-admin`
+     - Password: `password`
+     - Default country: United States
+     - Timezone: America/Los_Angeles
+* Export database for versioning (see bellow)
+
+
+### Database creation
 * In phpMyAdmin:
  - On 'Databases' tab
-  - Create `<database_name>`
-  - Collation: utf8_general_ci
+   - Create `<database_name>`
+   - Collation: utf8_general_ci
  - On 'Privileges' tab for `<database_name>`:
-  - Add user
-  - Username: `<database_admin>`
-  - Password: `<database_admin_password>`
-  - Host: local
-  - All privileges for `<database_name>`
+   - Add user
+   - Username: `<database_admin>`
+   - Password: `<database_admin_password>`
+   - Host: local
+   - All privileges for `<database_name>`
+
+### Export database
+* Visit **`localhost:8888/phpMyAdmin`** in browser
+* Click 'Export' tab for `<database_name>`
+* Choose 'Custom'
+ - Select all tables
+ - Save output to file:
+  - Character set: utf-8
+  - Compression: zipped
+ - Format: SQL
+ - Object creation: Check all except 'IF NOT EXISTS'
+* Move exported zip into **`<repo_pathname>/sites/db-backup>`**, replacing contents if necessary
 
 ## Technologies Used
 

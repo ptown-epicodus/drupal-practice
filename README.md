@@ -36,9 +36,25 @@ This website was generated with [Drupal 7.54](https://www.drupal.org/project/dru
 * Add user
  - Name: `<database_admin>`
  - Password: `<database_admin_password>`
- - Host: Local
+ - Host: local
  - All privileges for `<database_name>`
 
+
+## Project creation
+* Download latest Drupal 7.x and unzip package.
+* Rename to desired **`<repo_pathname>`** and set as working directory in CLI.
+* Run `$ cp sites/default/default.settings.php sites/default/settings.php`.
+* Run `$ chmod -R a+w sites/default`.
+* In phpMyAdmin:
+ - On 'Databases' tab
+  - Create `<database_name>`
+  - Collation: utf8_general_ci
+ - On 'Privileges' tab for `<database_name>`:
+  - Add user
+  - Username: `<database_admin>`
+  - Password: `<database_admin_password>`
+  - Host: local
+  - All privileges for `<database_name>`
 
 ## Technologies Used
 
